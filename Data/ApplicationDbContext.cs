@@ -3,11 +3,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API_FARM.Data
 {
-    public class ApplicationDbContex : DbContext
+    public class ApplicationDbContext : DbContext
     {
 
         public DbSet<AnimalType> AnimalTypes{ get; set; }
         
-        public ApplicationDbContex(DbContextOptions<ApplicationDbContex> options) : base(options) { }
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
     }
 }

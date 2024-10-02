@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace API_FARM.Models
 {
     [Table("animal_types")]
@@ -10,6 +12,6 @@ namespace API_FARM.Models
         public required string Name { get; set; }
         
         [Column("description")]
-        public string Description { get; set; }
+        public string? Description { get; set; }
     }
 }
