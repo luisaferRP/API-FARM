@@ -1,6 +1,10 @@
 using DotNetEnv;
 using API_FARM.Data;
 using Microsoft.EntityFrameworkCore;
+using API_FARM.Repositories;
+using API_FARM.Services;
+using Microsoft.OpenApi.Models;
+using Swashbuckle.AspNetCore.Annotations;
 
 Env.Load();
 
@@ -20,9 +24,15 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseMySql(connectionString, ServerVersion.Parse("8.0.20-mysql")));
 
 builder.Services.AddControllers();
+builder.Services.AddScoped<IAnimalTypeRepository,AnimalTypeServices>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(
+    c=>{
+        c.SwaggerDoc("v1",new OpenApiInfo{Title = "Api Farm", Version = "v1"});
+        c.EnableAnnotations();
+    }
+);
 
 var app = builder.Build();
 
