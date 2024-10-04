@@ -1,10 +1,12 @@
 using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
 namespace API_FARM.Models
 {
     [Table("animal_types")]
     public class AnimalType 
     {
+        [Key]
         [Column("id")]
         public int Id { get; set; }
 
