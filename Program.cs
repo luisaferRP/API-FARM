@@ -19,9 +19,17 @@ var connectionString = $"server={host};port={port};database={databaseName};uid={
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+//ACA CONEXION A BASE DE DATOS
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
                                                         //parseo de conexion
     options.UseMySql(connectionString, ServerVersion.Parse("8.0.20-mysql")));
+
+//USAR JWT ACA ABAJO
+
+
+
+
+
 
 builder.Services.AddControllers();
 builder.Services.AddScoped<IAnimalTypeRepository,AnimalTypeServices>();
@@ -51,6 +59,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 
