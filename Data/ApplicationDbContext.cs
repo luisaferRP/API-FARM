@@ -15,6 +15,8 @@ namespace API_FARM.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder){
             base.OnModelCreating(modelBuilder);
             AnimalTypeSeeder.Seed(modelBuilder);
+            //creacion de datos falsos
+            AnimalSeeder.Seed(modelBuilder,500);
         }
     }
 }
