@@ -7,6 +7,7 @@ namespace API_FARM.Controllers.v1.AnimalTypes
 {
     [ApiController]
     [Route("api/v1/Delete")]
+    [ApiExplorerSettings(GroupName = "v1")]
     public class AnimalTypeDeleteControllers(IAnimalTypeRepository animalType) : AnimalTypesControllers(animalType)
     {
         [HttpDelete("{id}")]

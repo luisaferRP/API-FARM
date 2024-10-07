@@ -30,6 +30,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(
     c=>{
         c.SwaggerDoc("v1",new OpenApiInfo{Title = "Api Farm", Version = "v1"});
+        //habilitar segundo grupo de version 2
+        c.SwaggerDoc("v2",new OpenApiInfo{Title = "Api Farm", Version = "v2"});
         c.EnableAnnotations();
     }
 );
@@ -40,7 +42,12 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(
+        options => {
+            options.SwaggerEndpoint("/swagger/v1/swagger.json", "version 1");
+            options.SwaggerEndpoint("/swagger/v2/swagger.json", "version 2");
+        }
+    );
 }
 
 app.UseHttpsRedirection();

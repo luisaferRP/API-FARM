@@ -7,6 +7,7 @@ namespace API_FARM.Controllers.v1.AnimalTypes
 {
     [ApiController]
     [Route("api/v1/Animal")]
+    [ApiExplorerSettings(GroupName = "v1")]
     public class AnimalTypeGetController(IAnimalTypeRepository animalType) : AnimalTypesControllers(animalType)
     {
         [HttpGet]

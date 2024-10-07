@@ -8,6 +8,7 @@ namespace API_FARM.Controllers.v1.AnimalTypes
 {
     [ApiController]
     [Route("api/v1/Animal")]
+    [ApiExplorerSettings(GroupName = "v1")]
     public class AnimalTypesCreatedController(IAnimalTypeRepository animalType) : AnimalTypesControllers(animalType)
     {
         [HttpPost("create")]
