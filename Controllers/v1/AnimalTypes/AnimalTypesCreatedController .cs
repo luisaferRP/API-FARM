@@ -10,7 +10,7 @@ namespace API_FARM.Controllers.v1.AnimalTypes
     [Route("api/v1/Animal")]
     public class AnimalTypesCreatedController(IAnimalTypeRepository animalType) : AnimalTypesControllers(animalType)
     {
-        [HttpPost("created")]
+        [HttpPost("create")]
         [SwaggerOperation(
             Summary ="Create animal type",
             Description ="This method create animal type"
@@ -24,7 +24,7 @@ namespace API_FARM.Controllers.v1.AnimalTypes
             {
                 return BadRequest("Los datos enviados no son correctos");
             }
-            
+
             await _animalType.Create(animalType);
             return Ok(animalType);
 
